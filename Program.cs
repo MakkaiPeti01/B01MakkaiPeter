@@ -36,9 +36,10 @@ namespace B01MakkaiPeter
         {
             // 5-el osztható, de 4-el nem
             int egyedi = 0;
+            int d = 0;
             for (int i = 0; i < adat.Length; i++)
             {
-                if (adat[i]%5==0 && adat[i]%4==1)
+                if (adat[i]%5==0 && adat[i]%4>=1)
                 {
                     egyedi++;
                 }
@@ -54,7 +55,7 @@ namespace B01MakkaiPeter
         {
             Beolvasas();
             Console.WriteLine("A minimum: {0}", Minimumertek());
-            //Console.WriteLine("5 osztható de 4 nem oszthatóak száma: {0}", Egyediek());
+            Console.WriteLine("5 osztható de 4 nem oszthatóak száma: {0}", Egyediek());
             Console.ReadKey();
         }
     }
