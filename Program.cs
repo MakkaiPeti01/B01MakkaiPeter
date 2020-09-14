@@ -13,20 +13,19 @@ namespace B01MakkaiPeter
         static void Beolvasas()
         {
             StreamReader olvas = new StreamReader("adatok.dat");
-            string[] sor = olvas.ReadLine().Split();
             for (int i = 0; i < adat.Length; i++)
             {
                 //adat[i] = int.Parse(sor[i]);
-                adat[i] = 3*int.Parse(sor[0]);           
+                adat[i] = int.Parse(olvas.ReadLine()) * 3;
                 Console.WriteLine(adat[i]);
             }
-        }
+        }        
         static int Minimumertek()
         {
             int min = adat[0];
             for (int i = 1; i < adat.Length; i++)
             {
-                if (min<adat[i])
+                if (min>adat[i])
                 {
                     min = adat[i];
                 }
@@ -55,7 +54,7 @@ namespace B01MakkaiPeter
         {
             Beolvasas();
             Console.WriteLine("A minimum: {0}", Minimumertek());
-            Console.WriteLine("5 osztható de 4 nem oszthatóak száma: {0}", Egyediek());
+            //Console.WriteLine("5 osztható de 4 nem oszthatóak száma: {0}", Egyediek());
             Console.ReadKey();
         }
     }
