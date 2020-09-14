@@ -24,7 +24,7 @@ namespace B01MakkaiPeter
         static int Minimumertek()
         {
             int min = adat[0];
-            for (int i = 0; i < adat.Length; i++)
+            for (int i = 1; i < adat.Length; i++)
             {
                 if (min<adat[i])
                 {
@@ -33,9 +33,29 @@ namespace B01MakkaiPeter
             }
             return min;
         }
+        static int Egyediek()
+        {
+            // 5-el osztható, de 4-el nem
+            int egyedi = 0;
+            for (int i = 0; i < adat.Length; i++)
+            {
+                if (adat[i]%5==0 && adat[i]%4==1)
+                {
+                    egyedi++;
+                }
+            }
+            StreamWriter iro = new StreamWriter("egyediek.txt");
+            for (int i = 0; i < adat.Length; i++)
+            {
+                iro.WriteLine(adat[egyedi]);
+            }
+            return egyedi;
+        }
         static void Main(string[] args)
         {
             Beolvasas();
+            Console.WriteLine("A minimum: {0}", Minimumertek());
+            Console.WriteLine("5 osztható de 4 nem oszthatóak száma: {0}", Egyediek());
             Console.ReadKey();
         }
     }
